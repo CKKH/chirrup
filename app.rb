@@ -3,7 +3,7 @@ require 'sinatra/base'
 class Chirrup < Sinatra::Base
 
   get '/' do
-    "Chirrup!"
+    erb :index
   end
 
   run! if app_file == $0
