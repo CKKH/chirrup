@@ -2,10 +2,11 @@ ENV['RACK_ENV']= 'test'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'timecop'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-Capybara.app= Chirrup
+Capybara.app = Chirrup
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
