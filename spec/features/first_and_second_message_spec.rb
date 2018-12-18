@@ -6,6 +6,9 @@ feature 'form interaction' do
     visit('/')
     fill_in 'message', with: 'Hey, this is a test message'
     click_button 'Submit'
-    expect(page).to have_content(Time.now)
+    fill_in 'message', with: 'Hey, this is the second test message'
+    click_button 'Submit'
+    expect(page).to have_text('Hey, this is a test message')
+    expect(page).to have_text('Hey, this is the second test message')
   end
 end

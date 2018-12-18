@@ -5,10 +5,13 @@
 <h1>Chirrup Messenger</h2>
 <form action="/message" method="post">
   <input type="text" name="message"></input>
-  <input type="hidden" name="timestamp"  value=<%= Time.now %></input>
   <input type="submit" value="Submit"</input>
 </form>
-<h1><%= @message.text_input %></h1>
-<h1><%= @message.timestamp %></h1>
+<% @messages.reverse.each do |message| %>
+  <div>
+    <%= message.text_input %> | <%= message.timestamp %>
+  </div>
+<% end %>
+
 </body>
 </html>
