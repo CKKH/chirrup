@@ -2,16 +2,20 @@ require 'sinatra/base'
 require './lib/message'
 
 class Chirrup < Sinatra::Base
+
   enable :sessions
 
   get '/' do
-    @message = session[:message]
+    if session[:message] == nil
+      @message = Message.new('No messages')
+    else
+      @message = Message.new(session[:message])
+    end
     erb :index
   end
 
   post '/message' do
     session[:message] = params[:message]
-    p @message = Message.new(session[:message])
     redirect '/'
   end
 
