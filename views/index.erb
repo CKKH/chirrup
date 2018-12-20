@@ -4,12 +4,12 @@
 
 <h1>Chirrup Messenger</h2>
 <form action="/message" method="post">
-  <input type="text" name="message"></input>
+  <input type="text" name="content"></input>
   <input type="submit" value="Submit"</input>
 </form>
 <% @messages.reverse.each do |message| %>
   <div>
-    <%= message.text_input %> | <%= message.timestamp %>
+    <%= message.content %> | <%= message.time %>
   </div>
 <% end %>
 

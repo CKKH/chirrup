@@ -4,13 +4,24 @@
 - Use a problem solving approach to implement user requirements
 - Build a web app
 
-### Stage 1 - Requirements
+### Stage 1 - requirements satisfied
 - User sees the home page at the index where it has
-    - A heading 
+    - A heading
     - A form
     - All the messages with a timestamp in reverse chronological order(newest at the top)
-- User can input text of a message
+- User can input message as text
 - User can submit the form and see the new message at the top of the previous messages
+
+### How to run the app from your terminal
+
+```
+git clone git@github.com:CKKH/chirrup.git
+cd chirrup
+bundle install
+rackup
+
+```
+- visit local host at the stated port and message away!
 
 #### Keys to success
 - Follow [BDD](https://github.com/makersacademy/course/blob/master/pills/bdd_cycle.md)

@@ -1,10 +1,18 @@
 class Message
+  
+  attr_reader :content, :time
 
-  attr_reader :text_input, :timestamp
+  def self.create(session, content)
+    session[:messages] << new(content)
+  end
 
-  def initialize(text_input)
-    @text_input = text_input
-    @timestamp = Time.new
+  def self.all(session)
+    session[:messages] ||= []
+  end
+
+  def initialize(content)
+    @content = content
+    @time = Time.now
   end
 
 end

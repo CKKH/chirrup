@@ -1,23 +1,19 @@
 require 'message'
 
 describe Message do
-  subject(:message) { described_class.new(text_input) }
-  let(:text_input) { :double }
+  subject(:message) { described_class.new(content) }
+  let(:content) { :double }
 
-  it 'responds to text_input' do
-    expect(message).to respond_to(:text_input)
-  end
-
-  describe '#text_input' do
+  describe '#content' do
     it 'returns user input' do
-      expect(message.text_input).to eq(text_input)
+      expect(message.content).to eq(content)
     end
   end
 
-  describe '#time_stamp' do
+  describe '#time' do
     it 'returns timestamp of user input' do
       Timecop.freeze
-      expect(message.timestamp).to eq(Time.now)
+      expect(message.time).to eq(Time.now)
     end
   end
 
