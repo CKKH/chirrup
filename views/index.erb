@@ -9,7 +9,7 @@
 </form>
 <% @messages.reverse.each do |message| %>
   <div>
-    <%= message.created_at %>: <a href=<%="/messages/#{message.id}"%>><%= message.content %></a>
+    <%= message.timestamp %>: <a href=<%="/messages/#{message.id}"%>><%= message.content %></a>
   </div>
 <% end %>
 

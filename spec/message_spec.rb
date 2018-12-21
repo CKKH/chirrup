@@ -2,6 +2,7 @@ require 'message'
 
 describe Message do
   subject(:message) { described_class.create(:content => 'Test') }
+  let(:id) { :double }
 
   describe '#content' do
     it 'returns user input' do
@@ -17,7 +18,7 @@ describe Message do
 
   describe '#id' do
     it 'returns message id' do
-      expect(message.id).to eq(8)
+      expect(message.id).to eq("#{message.id}".to_i)
     end
   end
 
