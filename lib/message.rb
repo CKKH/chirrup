@@ -1,18 +1,15 @@
+require 'data_mapper'
+
 class Message
   
-  attr_reader :content, :time
+  include DataMapper::Resource
 
-  def self.create(session, content)
-    session[:messages] << new(content)
-  end
+  property :id, Serial
+  property :content, Text
+  property :created_at, DateTime
 
-  def self.all(session)
-    session[:messages] ||= []
-  end
-
-  def initialize(content)
-    @content = content
-    @time = Time.now
+  def timestamp
+    created_at.strftime("%d-%m-%Y %H:%M:%S")
   end
 
 end

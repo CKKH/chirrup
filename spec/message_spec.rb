@@ -1,19 +1,23 @@
 require 'message'
 
 describe Message do
-  subject(:message) { described_class.new(content) }
-  let(:content) { :double }
+  subject(:message) { described_class.create(:content => 'Test') }
 
   describe '#content' do
     it 'returns user input' do
-      expect(message.content).to eq(content)
+      expect(message.content).to eq('Test')
     end
   end
 
-  describe '#time' do
+  describe '#timestamp' do
     it 'returns timestamp of user input' do
-      Timecop.freeze
-      expect(message.time).to eq(Time.now)
+      expect(message.timestamp).to eq(Time.now.strftime("%d-%m-%Y %H:%M:%S"))
+    end
+  end
+
+  describe '#id' do
+    it 'returns message id' do
+      expect(message.id).to eq(8)
     end
   end
 

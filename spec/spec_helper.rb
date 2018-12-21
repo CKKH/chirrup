@@ -2,7 +2,7 @@ ENV['RACK_ENV']= 'test'
 require 'capybara/rspec'
 require 'timecop'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require './app'
 
 Capybara.app = Chirrup
 

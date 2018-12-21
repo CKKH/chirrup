@@ -17,15 +17,24 @@ feature 'Messages' do
     end
 
     scenario 'A user can submit many messages and view them all' do
-      Timecop.freeze
       visit('/')
-      fill_in 'content', with: 'Hey, this is a test three message'
+      fill_in :content, with: 'Hey, this is a test three message'
       click_button 'Submit'
-      fill_in 'content', with: 'Hey, this is another test three message'
+      fill_in :content, with: 'Hey, this is another test three message'
       click_button 'Submit'
       expect(page).to have_text('Hey, this is a test three message')
       expect(page).to have_text('Hey, this is another test three message')
     end
   end
+
+    context 'Viewing a message' do
+      scenario 'message has embedded link that takes user to its own page' do
+        message = Message.create(:content => 'Click on me to see my own page!')
+        visit '/'
+        click_on 'Click on me to see my own page!'
+        expect(page.current_path).to eq("/messages/#{message.id}")
+        expect(page).to have_content('Click on me to see my own page!')
+      end
+    end
 
 end
