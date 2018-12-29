@@ -9,8 +9,8 @@
     <div>
       <%= @message.timestamp %>: <span><%= @message.content %></span>
     </div>
-    <form action="/edit-message/<%= @message.id %>" method="put">
-      <input type="submit" value="Edit"</input>
-    </form>
+    <textarea name="message" cols="40" rows="5" >
+       <%= @message.content %>
+    </textarea>
   </body>
 </html>

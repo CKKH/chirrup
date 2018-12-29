@@ -23,6 +23,11 @@ class Chirrup < Sinatra::Base
     erb(:show)
   end
 
-  run! if app_file == $0
+  get '/edit-message/:id' do
+    @message = Message.get(params[:id])
+    erb(:edit)
+  end
+
+  run! if app_file == 0
 
 end

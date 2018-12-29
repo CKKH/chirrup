@@ -37,4 +37,16 @@ feature 'Messages' do
       end
     end
 
+    context 'Edit a message' do
+      scenario 'user can visit edit page, and see message to be edited in text box' do
+        message = Message.create(:content => 'Click on me to see my own page!')
+        visit '/'
+        click_on 'Click on me to see my own page!'
+        click_button 'Edit'
+        expect(page.current_path).to eq("/edit-message/#{message.id}")
+        expect(page).to have_css('textarea[name="message"]')
+        expect(page).to have_content(message.content)
+      end
+    end
+
 end
