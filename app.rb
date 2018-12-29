@@ -28,6 +28,12 @@ class Chirrup < Sinatra::Base
     erb(:edit)
   end
 
+  post '/edited-message/:id' do
+    message = Message.get(params[:id])
+    message.update(:content => params[:message])
+    redirect '/'
+  end
+
   run! if app_file == 0
 
 end

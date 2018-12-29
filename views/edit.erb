@@ -6,11 +6,11 @@
   </head>
   <body>
     <h1>Chirrup Messenger</h1>
-    <div>
-      <%= @message.timestamp %>: <span><%= @message.content %></span>
-    </div>
+  <form action="/edited-message/<%= @message.id %>" method="post">
     <textarea name="message" cols="40" rows="5" >
-       <%= @message.content %>
+      <%= @message.content %>
     </textarea>
-  </body>
+    <input type="submit" value="Edit">
+  </form>
+</body>
 </html>

@@ -47,6 +47,17 @@ feature 'Messages' do
         expect(page).to have_css('textarea[name="message"]')
         expect(page).to have_content(message.content)
       end
+
+      scenario 'user can submit message edit, then be redirected to index' do
+        message = Message.create(:content => 'Click on me to see my own page!')
+        visit '/'
+        click_on 'Click on me to see my own page!'
+        click_button 'Edit'
+        fill_in('message', with: 'Edited message')
+        click_on 'Edit'
+        expect(page.current_path).to eq("/")
+        expect(page).to have_content 'Edited message'
+      end
     end
 
 end
