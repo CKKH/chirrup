@@ -7,6 +7,7 @@ require './config/datamapper'
 class Chirrup < Sinatra::Base
 
   set :sessions, true
+  set :method_override, true
 
   get '/' do
     @messages = Message.all
@@ -31,6 +32,12 @@ class Chirrup < Sinatra::Base
   post '/edited-message/:id' do
     message = Message.get(params[:id])
     message.update(:content => params[:message])
+    redirect '/'
+  end
+
+  post '/delete-message/:id' do
+    message = Message.get(params[:id])
+    message.destroy
     redirect '/'
   end
 

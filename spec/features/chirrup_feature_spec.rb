@@ -60,4 +60,15 @@ feature 'Messages' do
       end
     end
 
+    context 'Delete a message' do
+      scenario 'user can delete a message, then be redirected to index' do
+        message = Message.create(:content => 'Delete me!')
+        visit '/'
+        click_on 'Delete me!'
+        click_button 'Delete'
+        expect(page.current_path).to eq('/')
+        expect(page).to_not have_content 'Delete me!'
+      end
+    end
+
 end
