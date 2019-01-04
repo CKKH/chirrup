@@ -8,9 +8,9 @@ gem 'rake'
 gem 'sinatra'
 
 group :test do
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'dm-transactions'
-  gem 'capybara'
   gem 'pry'
   gem 'rspec'
   gem 'rubocop', '0.56.0'

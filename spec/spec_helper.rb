@@ -1,7 +1,7 @@
 require 'simplecov'
 SimpleCov.start
 
-ENV['RACK_ENV']= 'test'
+ENV['RACK_ENV'] = 'test'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'timecop'
@@ -11,7 +11,7 @@ Capybara.app = Chirrup
 
 RSpec.configure do |config|
 
-    config.before(:suite) do
+  config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
