@@ -1,7 +1,7 @@
 require 'data_mapper'
 
 class Message
-  
+
   include DataMapper::Resource
 
   property :id, Serial
@@ -10,6 +10,10 @@ class Message
 
   def timestamp
     created_at.strftime("%d-%m-%Y %H:%M:%S")
+  end
+
+  def twenty_chars
+    content[0, 20]
   end
 
 end

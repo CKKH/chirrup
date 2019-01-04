@@ -4,6 +4,6 @@
 </form>
 <% @messages.reverse.each do |message| %>
   <div>
-    <%= message.timestamp %>: <a href=<%="/messages/#{message.id}"%>><%= message.content %></a>
+    <%= message.timestamp %>: <a href=<%="/messages/#{message.id}"%>><%= message.twenty_chars %></a>
   </div>
 <% end %>

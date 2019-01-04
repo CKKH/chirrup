@@ -1,6 +1,4 @@
 <form action="/edited-message/<%= @message.id %>" method="post">
-  <textarea name="message" cols="40" rows="5" >
-    <%= @message.content %>
-  </textarea>
+  <textarea name="message" cols="40" rows="5" ><%= @message.content %></textarea>
   <input type="submit" value="Edit"></input>
 </form>

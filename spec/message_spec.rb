@@ -10,6 +10,13 @@ describe Message do
     end
   end
 
+  describe '#twenty_chars' do
+    it 'returns first twenty chars of user input' do
+      message = Message.create(:content => 'abcdefghijklmnopqrstuvwxyz')
+      expect(message.twenty_chars).to eq('abcdefghijklmnopqrst')
+    end
+  end
+
   describe '#timestamp' do
     it 'returns timestamp of user input' do
       expect(message.timestamp).to eq(Time.now.strftime("%d-%m-%Y %H:%M:%S"))
