@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Chirrup Messenger</h1>
-  <form action="/edited-message/<%= @message.id %>" method="post">
-    <textarea name="message" cols="40" rows="5" >
-      <%= @message.content %>
-    </textarea>
-    <input type="submit" value="Edit">
-  </form>
-</body>
-</html>
+<form action="/edited-message/<%= @message.id %>" method="post">
+  <textarea name="message" cols="40" rows="5" >
+    <%= @message.content %>
+  </textarea>
+  <input type="submit" value="Edit">
+</form>

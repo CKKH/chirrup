@@ -21,12 +21,12 @@ class Chirrup < Sinatra::Base
 
   get '/messages/:id' do
     @message = Message.get(params[:id])
-    erb(:show)
+    erb :show
   end
 
   get '/edit-message/:id' do
     @message = Message.get(params[:id])
-    erb(:edit)
+    erb :edit
   end
 
   post '/edited-message/:id' do

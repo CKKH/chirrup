@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>Chirrup Messenger</h2>
 <form action="/message" method="post">
   <input type="text" name="content"></input>
   <input type="submit" value="Submit"</input>
@@ -12,6 +7,3 @@
     <%= message.timestamp %>: <a href=<%="/messages/#{message.id}"%>><%= message.content %></a>
   </div>
 <% end %>
-
-</body>
-</html>

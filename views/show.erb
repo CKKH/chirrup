@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Chirrup Messenger</h1>
-    <div>
-      <%= @message.timestamp %>: <span><%= @message.content %></span>
-    </div>
-    <form action="/edit-message/<%= @message.id %>" method="get">
-      <input type="submit" value="Edit"</input>
-    </form>
-    <form action="/delete-message/<%= @message.id %>" method="post">
-      <input type="submit" value="Delete">
-    </form>
-  </body>
-</html>
+<div>
+  <%= @message.timestamp %>: <span><%= @message.content %></span>
+</div>
+<form action="/edit-message/<%= @message.id %>" method="get">
+  <input type="submit" value="Edit"</input>
+</form>
+<form action="/delete-message/<%= @message.id %>" method="post">
+  <input type="submit" value="Delete">
+</form>
