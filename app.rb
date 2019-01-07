@@ -29,13 +29,13 @@ class Chirrup < Sinatra::Base
     erb :edit
   end
 
-  post '/edited-message/:id' do
+  put '/message/:id' do
     message = Message.get(params[:id])
     message.update(:content => params[:message])
     redirect '/'
   end
 
-  post '/delete-message/:id' do
+  delete '/message/:id' do
     message = Message.get(params[:id])
     message.destroy
     redirect '/'

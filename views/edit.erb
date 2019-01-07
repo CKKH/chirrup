@@ -1,4 +1,5 @@
-<form action="/edited-message/<%= @message.id %>" method="post">
+<form action="/message/<%= @message.id %>" method="post">
+  <input name="_method" type="hidden" value="put">
   <textarea name="message" cols="40" rows="5" ><%= @message.content %></textarea>
   <input type="submit" value="Edit"></input>
 </form>

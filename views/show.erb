@@ -4,6 +4,7 @@
 <form action="/edit-message/<%= @message.id %>" method="get">
   <input type="submit" value="Edit"</input>
 </form>
-<form action="/delete-message/<%= @message.id %>" method="post">
+<form action="/message/<%= @message.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
   <input type="submit" value="Delete">
 </form>

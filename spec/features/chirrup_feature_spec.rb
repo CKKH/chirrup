@@ -6,6 +6,7 @@ feature 'Messages' do
     scenario 'A user can submit text and see it with a timestamp' do
       visit_homepage_and_submit_message_with_tag
       expect(page).to have_content 't1 message'
+      expect(page).to have_content 't1 tag'
     end
 
     scenario 'A user is redirected to homepage after submitting message' do
@@ -15,12 +16,14 @@ feature 'Messages' do
 
     scenario 'A user can submit many messages and view them all' do
       visit_homepage_and_submit_message_with_tag
-      visit_homepage_and_submit_second_message
+      visit_homepage_and_submit_second_message_with_tag
       expect(page).to have_text('t1 message')
+      expect(page).to have_text('t1 tag')
       expect(page).to have_text('t2 message')
+      expect(page).to have_text('t2 tag')
     end
 
-    scenario "only first 20 characters of user input displayed on homepage" do
+    scenario "only first 20 characters of messages displayed on homepage" do
       visit('/')
       fill_in :content, with: 'abcdefghijklmnopqrstuvwxyz'
       click_button 'Submit'
