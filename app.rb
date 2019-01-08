@@ -23,7 +23,7 @@ class Chirrup < Sinatra::Base
     redirect '/'
   end
 
-  get '/messages/:id' do
+  get '/message/:id' do
     @message = Message.get(params[:id])
     erb :show
   end
@@ -33,13 +33,13 @@ class Chirrup < Sinatra::Base
     erb :edit
   end
 
-  put '/message/:id' do
+  put '/message/edit/:id' do
     message = Message.get(params[:id])
     message.update(:content => params[:message])
     redirect '/'
   end
 
-  delete '/message/:id' do
+  delete '/message/delete/:id' do
     message = Message.get(params[:id])
     message.destroy
     redirect '/'

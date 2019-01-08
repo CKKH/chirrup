@@ -32,7 +32,7 @@ feature 'Messages' do
     scenario 'message has embedded link that takes user to its own page' do
       message = Message.create(:content => 'Click me')
       visit_homepage_and_click_on_existing_message_link
-      expect(page.current_path).to eq("/messages/#{message.id}")
+      expect(page.current_path).to eq("/message/#{message.id}")
       expect(page).to have_content('Click me')
     end
   end

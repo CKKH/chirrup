@@ -5,7 +5,7 @@
 </form>
 <% @messages.reverse.each do |message| %>
   <div id="message-#{message.id}">
-    <%= message.created_at.strftime("%I:%M%p %m/%d/%Y") %>: <a href=<%="/messages/#{message.id}"%>><%= message.twenty_chars %></a>...
+    <%= message.created_at.strftime("%I:%M%p %m/%d/%Y") %>: <a href=<%="/message/#{message.id}"%>><%= message.twenty_chars %></a>...
       <% message.tags.each do |tag| %>
         Tag: <%= tag.content %></a>
       <% end %>
