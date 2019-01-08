@@ -7,4 +7,6 @@ class Tag
   property :id, Serial
   property :content, Text
 
+  has n, :messages, :through => Resource
+
 end

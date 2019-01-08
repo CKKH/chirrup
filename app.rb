@@ -3,7 +3,6 @@ ENV["RACK_ENV"] ||= 'development'
 require 'sinatra/base'
 require './lib/message'
 require './lib/tag'
-require './lib/tagging'
 require './config/datamapper'
 require 'pry'
 
