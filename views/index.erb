@@ -4,12 +4,10 @@
   <input type="submit" value="Submit"</input>
 </form>
 <% @messages.reverse.each do |message| %>
-  <div>
-    <%= message.timestamp %>: <a href=<%="/messages/#{message.id}"%>><%= message.twenty_chars  %></a>
-  </div>
-<% end %>
-<% @tags.reverse.each do |tag| %>
-  <div>
-    <%= tag.content %> 
+  <div id="message-#{message.id}">
+    <%= message.created_at.strftime("%I:%M%p %m/%d/%Y") %>: <a href=<%="/messages/#{message.id}"%>><%= message.twenty_chars %></a>...
+      <% message.tags.each do |tag| %>
+        Tag: <%= tag.content %></a>
+      <% end %>
   </div>
 <% end %>
