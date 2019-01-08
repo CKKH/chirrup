@@ -1,14 +1,12 @@
-def visit_homepage_and_submit_message_with_tag
+def visit_homepage_and_submit_message
   visit('/')
   fill_in :content, with: 't1 message'
-  fill_in :tag, with: 't1 tag'
   click_button 'Submit'
 end
 
-def visit_homepage_and_submit_second_message_with_tag
+def visit_homepage_and_submit_second_message
   visit('/')
   fill_in :content, with: 't2 message'
-  fill_in :tag, with: 't2 tag'
   click_button 'Submit'
 end
 

@@ -2,7 +2,10 @@ ENV["RACK_ENV"] ||= 'development'
 
 require 'sinatra/base'
 require './lib/message'
+require './lib/tag'
+require './lib/tagging'
 require './config/datamapper'
+require 'pry'
 
 class Chirrup < Sinatra::Base
 
@@ -11,11 +14,13 @@ class Chirrup < Sinatra::Base
 
   get '/' do
     @messages = Message.all
+    @tags = Tag.all
     erb :index
   end
 
   post '/message' do
     Message.create(content: params[:content])
+    Tag.create(content: params[:tag])
     redirect '/'
   end
 
