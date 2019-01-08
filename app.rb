@@ -1,8 +1,6 @@
 ENV["RACK_ENV"] ||= 'development'
 
 require 'sinatra/base'
-require './lib/message'
-require './lib/tag'
 require './config/datamapper'
 require 'pry'
 
@@ -18,8 +16,10 @@ class Chirrup < Sinatra::Base
   end
 
   post '/message' do
-    Message.create(content: params[:content])
-    Tag.create(content: params[:tag])
+    message = Message.create(content: params[:content])
+    tag = Tag.first_or_create(content: params[:tag])
+    message.tags << tag
+    message.save
     redirect '/'
   end
 
