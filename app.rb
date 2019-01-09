@@ -41,6 +41,7 @@ class Chirrup < Sinatra::Base
 
   delete '/message/delete/:id' do
     message = Message.get(params[:id])
+    message.message_tags.destroy
     message.destroy
     redirect '/'
   end
